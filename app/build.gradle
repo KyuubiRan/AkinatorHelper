@@ -4,19 +4,19 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 32
 
     defaultConfig {
         applicationId "me.kyuubiran.akinatorhelper"
         minSdk 21
-        targetSdk 30
+        targetSdk 32
         versionCode 1
         versionName "1.0"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -30,7 +30,6 @@ android {
 }
 
 dependencies {
-
     compileOnly 'de.robv.android.xposed:api:82'
-    implementation 'com.github.kyuubiran:EzXHelper:0.3.8'
+    implementation 'com.github.kyuubiran:EzXHelper:0.5.0'
 }
