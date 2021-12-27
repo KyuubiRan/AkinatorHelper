@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Akinator Helper</string>
     <string name="module_load">Module load success!</string>
-    <string name="base_funtion_title">Base Funtions</string>
-    <string name="unlock_pro">Unlock Pro</string>
+    <string name="base_funtion_title">Base funtions</string>
+    <string name="unlock_pro_title">Unlock pro</string>
+    <string name="game_hack_title">Game hack</string>
+    <string name="always_first_try_title">Always first try</string>
 </resources>

@@ -4,10 +4,7 @@ import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import me.kyuubiran.akinatorhelper.hook.BaseHook
-import me.kyuubiran.akinatorhelper.hook.ConfigHook
-import me.kyuubiran.akinatorhelper.hook.OnGameActivityCreateHook
-import me.kyuubiran.akinatorhelper.hook.SettingHook
+import me.kyuubiran.akinatorhelper.hook.*
 
 class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
@@ -19,7 +16,7 @@ class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
     }
 
     private val init: Unit by lazy {
-        initHooks(OnGameActivityCreateHook, SettingHook, ConfigHook)
+        initHooks(OnGameActivityCreateHook, SettingHook, ConfigHook, GameResultHook)
     }
 
     private fun initHooks(vararg hooks: BaseHook) {

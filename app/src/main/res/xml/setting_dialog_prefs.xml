@@ -4,7 +4,15 @@
     <PreferenceCategory android:title="@string/base_funtion_title">
         <SwitchPreference
             android:key="unlock_pro"
-            android:title="@string/unlock_pro" />
+            android:title="@string/unlock_pro_title" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/game_hack_title">
+        <SwitchPreference
+            android:key="always_first_try"
+            android:title="@string/always_first_try_title" />
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

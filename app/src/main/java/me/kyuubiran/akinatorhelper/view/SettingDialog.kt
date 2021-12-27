@@ -35,6 +35,7 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
             addPreferencesFromResource(R.xml.setting_dialog_prefs)
 
             findPreference("unlock_pro").onPreferenceChangeListener = this
+            findPreference("always_first_try").onPreferenceChangeListener = this
         }
 
         override fun onPreferenceChange(p: Preference?, v: Any?): Boolean {
@@ -42,6 +43,11 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                 "unlock_pro" -> {
                     (v as? Boolean)?.let {
                         ConfigManager.unlockPro = it
+                    }
+                }
+                "always_first_try" -> {
+                    (v as? Boolean)?.let {
+                        ConfigManager.alwaysWinFirstTry = it
                     }
                 }
             }

@@ -8,6 +8,7 @@ import me.kyuubiran.akinatorhelper.util.ConfigManager
 object ConfigHook : BaseHook() {
     override fun init() {
         Log.i("Start hook configs")
+        // region <proHook>
         findAllMethods("com.digidust.elokence.akinator.factories.AkConfigFactory") {
             name == "isFreemium" || name == "isGameCountLimited" || name == "canShowAd"
         }.hookBefore {
@@ -22,5 +23,6 @@ object ConfigHook : BaseHook() {
             Log.i("Hooked ${it.method.name}")
             it.result = true
         }
+        // endregion
     }
 }
