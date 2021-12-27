@@ -15,8 +15,4 @@ object ConfigManager {
     var alwaysWinFirstTry: Boolean
         set(value) = sPrefs.edit().putBoolean("always_first_try", value).apply()
         get() = sPrefs.getBoolean("always_first_try", false)
-
-    var allowRepeatRewards : Boolean
-        set(value) = sPrefs.edit().putBoolean("allow_repeat_rewards", value).apply()
-        get() = sPrefs.getBoolean("allow_repeat_rewards", false)
 }
