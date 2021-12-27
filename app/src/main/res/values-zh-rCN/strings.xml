@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="module_load">模块加载成功！</string>
+    <string name="base_funtion_title">基础功能</string>
+    <string name="unlock_pro">解锁付费版</string>
+</resources>

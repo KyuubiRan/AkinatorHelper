@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/base_funtion_title">
+        <SwitchPreference
+            android:key="unlock_pro"
+            android:title="@string/unlock_pro" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

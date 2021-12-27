@@ -2,12 +2,14 @@ package me.kyuubiran.akinatorhelper
 
 import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import me.kyuubiran.akinatorhelper.hooks.BaseHook
 import me.kyuubiran.akinatorhelper.hooks.ConfigHook
 import me.kyuubiran.akinatorhelper.hooks.OnGameActivityCreateHook
+import me.kyuubiran.akinatorhelper.hooks.SettingHook
 
-class HookEntry : IXposedHookLoadPackage {
+class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (!lpparam.packageName.startsWith("com.digidust.elokence.akinator") || lpparam.packageName != lpparam.processName) return
         EzXHelperInit.initHandleLoadPackage(lpparam)
@@ -17,7 +19,7 @@ class HookEntry : IXposedHookLoadPackage {
     }
 
     private val init: Unit by lazy {
-        initHooks(OnGameActivityCreateHook, ConfigHook)
+        initHooks(OnGameActivityCreateHook, SettingHook, ConfigHook)
     }
 
     private fun initHooks(vararg hooks: BaseHook) {
@@ -26,5 +28,9 @@ class HookEntry : IXposedHookLoadPackage {
             it.init()
             it.isInit = true
         }
+    }
+
+    override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam) {
+        EzXHelperInit.initZygote(startupParam)
     }
 }
