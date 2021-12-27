@@ -17,5 +17,14 @@ object GameResultHook : BaseHook() {
             it.result = true
         }
         // endregion
+
+        // region <isItemBought>
+        findMethod("com.digidust.elokence.akinator.factories.AkPlayerBelongingsFactory") {
+            name == "isItemBought"
+        }.hookBefore {
+            if (!ConfigManager.allItemBought) return@hookBefore
+            Log.i("Hooked ${it.method.name}")
+            it.result = true
+        }
     }
 }

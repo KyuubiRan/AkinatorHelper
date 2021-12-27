@@ -2,7 +2,18 @@
 <resources>
     <string name="module_load">模块加载成功！</string>
     <string name="base_funtion_title">基础功能</string>
-    <string name="unlock_pro_title">解锁付费版</string>
+    <string name="unlock_pro_title">解锁内购（钩子模式）</string>
     <string name="game_hack_title">游戏修改</string>
     <string name="always_first_try_title">永远是第一次尝试</string>
+    <string name="unlock_relock_game_title">解锁/锁定内购</string>
+    <string name="unlock_game_title">解锁内购</string>
+    <string name="relock_game_title">锁定内购</string>
+    <string name="unlock_game_success">成功解锁内购！</string>
+    <string name="relock_game_success">成功锁定内购！</string>
+    <string name="other_title">其他</string>
+    <string name="goto_github_title">在Github上浏览本项目</string>
+    <string name="goto_github_summary">点个Star吧！</string>
+    <string name="module_version_title">模块版本</string>
+    <string name="author_title">模块作者</string>
+    <string name="all_item_bought_title">解锁商店所有物品</string>
 </resources>

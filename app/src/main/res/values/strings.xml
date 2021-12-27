@@ -2,7 +2,19 @@
     <string name="app_name" translatable="false">Akinator Helper</string>
     <string name="module_load">Module load success!</string>
     <string name="base_funtion_title">Base funtions</string>
-    <string name="unlock_pro_title">Unlock pro</string>
+    <string name="unlock_pro_title">Unlock pro (Hook)</string>
     <string name="game_hack_title">Game hack</string>
     <string name="always_first_try_title">Always first try</string>
+    <string name="unlock_relock_game_title">Unlock/Relock pro</string>
+    <string name="unlock_game_title">Unlock the game</string>
+    <string name="relock_game_title">Relock the game</string>
+    <string name="unlock_game_success">Unlock game success!</string>
+    <string name="relock_game_success">Relock game success</string>
+    <string name="other_title">Other</string>
+    <string name="goto_github_title">Browse this project on Github</string>
+    <string name="goto_github_summary">One star plz!</string>
+    <string name="module_version_title">Module version</string>
+    <string name="author_title">Module author</string>
+    <string name="author_summary" translatable="false">KyuubiRan</string>
+    <string name="all_item_bought_title">Unlock all items in the shop</string>
 </resources>

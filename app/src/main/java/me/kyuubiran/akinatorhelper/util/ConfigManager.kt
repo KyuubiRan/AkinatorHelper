@@ -15,4 +15,9 @@ object ConfigManager {
     var alwaysWinFirstTry: Boolean
         set(value) = sPrefs.edit().putBoolean("always_first_try", value).apply()
         get() = sPrefs.getBoolean("always_first_try", false)
+
+    var allItemBought: Boolean
+        set(value) = sPrefs.edit().putBoolean("all_item_bought", value).apply()
+        get() = sPrefs.getBoolean("all_item_bought", false)
+
 }

@@ -12,7 +12,35 @@
             android:key="always_first_try"
             android:title="@string/always_first_try_title" />
 
+        <SwitchPreference
+            android:key="all_item_bought"
+            android:title="@string/all_item_bought_title" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/unlock_relock_game_title">
+        <Preference
+            android:key="unlock_game"
+            android:title="@string/unlock_game_title" />
+
+        <Preference
+            android:key="relock_game"
+            android:title="@string/relock_game_title" />
+    </PreferenceCategory>
+
+   <PreferenceCategory android:title="@string/other_title">
+       <Preference
+           android:key="author"
+           android:title="@string/author_title"
+           android:summary="@string/author_summary"/>
+
+       <Preference
+           android:key="module_version"
+           android:title="@string/module_version_title" />
+
+        <Preference
+            android:key="goto_github"
+            android:title="@string/goto_github_title"
+            android:summary="@string/goto_github_summary"/>
+    </PreferenceCategory>
 
 </PreferenceScreen>
