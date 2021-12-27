@@ -1,4 +1,4 @@
-package me.kyuubiran.akinatorhelper.hooks
+package me.kyuubiran.akinatorhelper.hook
 
 import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import com.github.kyuubiran.ezxhelper.init.InitFields.appContext
@@ -16,8 +16,12 @@ object OnGameActivityCreateHook : BaseHook() {
             name == "onCreate"
         }.hookAfter {
             hook?.unhook()
-            EzXHelperInit.initAppContext(addPath = true, initModuleResources = true)
+            EzXHelperInit.initAppContext(
+                addPath = true,
+                initModuleResources = true
+            )
             Log.toast(appContext.getString(R.string.module_load))
+            Log.i("Inited game hook")
         }
     }
 }

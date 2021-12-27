@@ -1,4 +1,4 @@
-package me.kyuubiran.akinatorhelper.hooks
+package me.kyuubiran.akinatorhelper.hook
 
 abstract class BaseHook {
     var isInit: Boolean = false
