@@ -50,6 +50,26 @@ object AkinatorHelper {
             mSetGameUnlocked.invoke(akGameFactoryInstance)
         }
 
+        private val mAddOneWonGame by lazy {
+            findMethod(C_AK_GAME_FACTORY) {
+                name == "addOneWonGame"
+            }
+        }
+
+        fun addOneWonGame() {
+            mAddOneWonGame.invoke(akGameFactoryInstance)
+        }
+
+        private val mAddOneLostGame by lazy {
+            findMethod(C_AK_GAME_FACTORY) {
+                name == "addOneLostGame"
+            }
+        }
+
+        fun addOneLostGame() {
+            mAddOneLostGame.invoke(akGameFactoryInstance)
+        }
+
     }
 
     var isGameUnlocked: Boolean

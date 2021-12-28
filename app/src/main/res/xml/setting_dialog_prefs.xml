@@ -17,7 +17,14 @@
             android:title="@string/all_item_bought_title" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/unlock_relock_game_title">
+    <PreferenceCategory android:title="@string/local_hack_title">
+        <Preference
+            android:key="add_win_times"
+            android:title="@string/increase_win_times_title" />
+        <Preference
+            android:key="add_lose_times"
+            android:title="@string/increase_lose_times_title" />
+
         <Preference
             android:key="unlock_game"
             android:title="@string/unlock_game_title" />
@@ -27,20 +34,20 @@
             android:title="@string/relock_game_title" />
     </PreferenceCategory>
 
-   <PreferenceCategory android:title="@string/other_title">
-       <Preference
-           android:key="author"
-           android:title="@string/author_title"
-           android:summary="@string/author_summary"/>
+    <PreferenceCategory android:title="@string/other_title">
+        <Preference
+            android:key="author"
+            android:summary="@string/author_summary"
+            android:title="@string/author_title" />
 
-       <Preference
-           android:key="module_version"
-           android:title="@string/module_version_title" />
+        <Preference
+            android:key="module_version"
+            android:title="@string/module_version_title" />
 
         <Preference
             android:key="goto_github"
-            android:title="@string/goto_github_title"
-            android:summary="@string/goto_github_summary"/>
+            android:summary="@string/goto_github_summary"
+            android:title="@string/goto_github_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

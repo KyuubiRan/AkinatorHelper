@@ -7,6 +7,8 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.preference.Preference
 import android.preference.PreferenceFragment
+import android.text.InputType
+import android.widget.EditText
 import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import com.github.kyuubiran.ezxhelper.utils.Log
 import me.kyuubiran.akinatorhelper.BuildConfig
@@ -28,10 +30,37 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
 
         setView(prefsFragment.view)
         setTitle(activity.getString(R.string.app_name))
+
+        setPositiveButton(R.string.close, null)
+        setCancelable(false)
     }
 
     class PrefsFragment : PreferenceFragment(), Preference.OnPreferenceChangeListener,
         Preference.OnPreferenceClickListener {
+
+        private fun showEditDialog(
+            title: String,
+            hint: String = "",
+            cancelable: Boolean = true,
+            defText: String = "",
+            inputType: Int = InputType.TYPE_CLASS_TEXT,
+            onConfirm: ((String) -> Unit)? = null,
+            onCancel: ((String) -> Unit)? = null
+        ) {
+            val et = EditText(this.activity).also {
+                it.hint = hint
+                it.inputType = inputType
+                it.setText(defText)
+            }
+            AlertDialog.Builder(this.activity).run {
+                setTitle(title)
+                setView(et)
+                setCancelable(cancelable)
+                setPositiveButton(R.string.confirm) { _, _ -> onConfirm?.invoke(et.text.toString()) }
+                setNegativeButton(R.string.cancel) { _, _ -> onCancel?.invoke(et.text.toString()) }
+                show()
+            }
+        }
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -43,6 +72,8 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
 
             findPreference("unlock_game").onPreferenceClickListener = this
             findPreference("relock_game").onPreferenceClickListener = this
+            findPreference("add_win_times").onPreferenceClickListener = this
+            findPreference("add_lose_times").onPreferenceClickListener = this
             findPreference("goto_github").onPreferenceClickListener = this
 
             findPreference("module_version").summary =
@@ -79,6 +110,46 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                 "relock_game" -> {
                     AkinatorHelper.isGameUnlocked = false
                     Log.toast(getString(R.string.relock_game_success))
+                }
+                "add_win_times" -> {
+                    showEditDialog(
+                        getString(R.string.increase_win_times_title),
+                        getString(R.string.times_to_add),
+                        defText = "1",
+                        inputType = InputType.TYPE_CLASS_NUMBER,
+                        onConfirm = {
+                            (it.toIntOrNull() ?: 0).let { num ->
+                                if (num < 1) {
+                                    Log.toast(getString(R.string.num_must_be_greater_than_zero))
+                                    return@showEditDialog
+                                }
+                                repeat(num) {
+                                    AkinatorHelper.Methods.addOneWonGame()
+                                }
+                                Log.toast(getString(R.string.success_increate_win_times, num))
+                            }
+                        }
+                    )
+                }
+                "add_lose_times" -> {
+                    showEditDialog(
+                        getString(R.string.increase_lose_times_title),
+                        getString(R.string.times_to_add),
+                        defText = "1",
+                        inputType = InputType.TYPE_CLASS_NUMBER,
+                        onConfirm = {
+                            (it.toIntOrNull() ?: 0).let { num ->
+                                if (num < 1) {
+                                    Log.toast(getString(R.string.num_must_be_greater_than_zero))
+                                    return@showEditDialog
+                                }
+                                repeat(num) {
+                                    AkinatorHelper.Methods.addOneWonGame()
+                                }
+                                Log.toast(getString(R.string.success_increate_lose_times, num))
+                            }
+                        }
+                    )
                 }
                 "goto_github" -> {
                     openUrl("https://github.com/KyuubiRan/AkinatorHelper")

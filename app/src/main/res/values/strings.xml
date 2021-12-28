@@ -17,4 +17,15 @@
     <string name="author_title">Module author</string>
     <string name="author_summary" translatable="false">KyuubiRan</string>
     <string name="all_item_bought_title">Unlock all items in the shop</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="increase_win_times_title">Increase win times</string>
+    <string name="increase_lose_times_title">Increase lose times</string>
+    <string name="times_to_add">Times to add</string>
+    <string name="local_hack_title">Local hack</string>
+    <string name="success_increate_win_times">Increase %d win times</string>
+    <string name="success_increate_lose_times">Increase %d lose times</string>
+    <string name="num_must_be_greater_than_zero">The number must be greater than zero!</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
 </resources>
