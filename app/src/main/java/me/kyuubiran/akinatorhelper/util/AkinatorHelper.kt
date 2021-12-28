@@ -1,11 +1,16 @@
 package me.kyuubiran.akinatorhelper.util
 
 import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.loadClass
 
 object AkinatorHelper {
     object Methods {
+        private val C_AK_GAME_FACTORY by lazy {
+            loadClass("com.digidust.elokence.akinator.factories.AkGameFactory")
+        }
+
         private val mGetAkGameFactoryInstance by lazy {
-            findMethod("com.digidust.elokence.akinator.factories.AkGameFactory") {
+            findMethod(C_AK_GAME_FACTORY) {
                 name == "sharedInstance"
             }
         }
@@ -15,7 +20,7 @@ object AkinatorHelper {
         }
 
         private val mIsGameUnlocked by lazy {
-            findMethod("com.digidust.elokence.akinator.factories.AkGameFactory") {
+            findMethod(C_AK_GAME_FACTORY) {
                 name == "isUnlocked"
             }
         }
@@ -25,7 +30,7 @@ object AkinatorHelper {
         }
 
         private val mSetGameLocked by lazy {
-            findMethod("com.digidust.elokence.akinator.factories.AkGameFactory") {
+            findMethod(C_AK_GAME_FACTORY) {
                 name == "lockGame"
             }
         }
@@ -36,7 +41,7 @@ object AkinatorHelper {
 
 
         private val mSetGameUnlocked by lazy {
-            findMethod("com.digidust.elokence.akinator.factories.AkGameFactory") {
+            findMethod(C_AK_GAME_FACTORY) {
                 name == "unlockGame"
             }
         }

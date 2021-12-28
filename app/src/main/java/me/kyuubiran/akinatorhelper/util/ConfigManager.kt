@@ -1,10 +1,11 @@
 package me.kyuubiran.akinatorhelper.util
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.github.kyuubiran.ezxhelper.init.InitFields.appContext
 
 object ConfigManager {
-    val sPrefs by lazy {
+    val sPrefs: SharedPreferences by lazy {
         appContext.getSharedPreferences("akinator_helper", Context.MODE_PRIVATE)
     }
 
