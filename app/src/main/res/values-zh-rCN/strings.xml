@@ -21,7 +21,7 @@
     <string name="increase_win_times_title">增加胜利次数</string>
     <string name="increase_lose_times_title">增加失败次数</string>
     <string name="times_to_add">增加的次数</string>
-    <string name="pref_hack">本地修改</string>
+    <string name="pref_hack">配置文件修改</string>
     <string name="success_increate_win_times">已增加%d次胜利次数</string>
     <string name="success_increate_lose_times">已增加%d次失败次数</string>
     <string name="num_must_be_greater_than_zero">数字必须大于0！</string>
