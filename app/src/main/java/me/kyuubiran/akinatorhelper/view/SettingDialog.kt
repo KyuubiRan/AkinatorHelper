@@ -152,7 +152,7 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                     )
                 }
                 "goto_github" -> {
-                    openUrl("https://github.com/KyuubiRan/AkinatorHelper")
+                    this.activity.openUrl("https://github.com/KyuubiRan/AkinatorHelper")
                 }
             }
             return true
