@@ -17,7 +17,7 @@
             android:title="@string/all_item_bought_title" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/local_hack_title">
+    <PreferenceCategory android:title="@string/pref_hack">
         <Preference
             android:key="add_win_times"
             android:title="@string/increase_win_times_title" />
@@ -32,6 +32,14 @@
         <Preference
             android:key="relock_game"
             android:title="@string/relock_game_title" />
+
+        <Preference
+            android:key="set_gz"
+            android:title="@string/set_gz_title" />
+
+        <Preference
+            android:key="add_xp"
+            android:title="@string/add_xp_title" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/other_title">

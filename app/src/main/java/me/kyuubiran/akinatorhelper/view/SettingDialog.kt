@@ -74,6 +74,8 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
             findPreference("relock_game").onPreferenceClickListener = this
             findPreference("add_win_times").onPreferenceClickListener = this
             findPreference("add_lose_times").onPreferenceClickListener = this
+            findPreference("set_gz").onPreferenceClickListener = this
+            findPreference("add_xp").onPreferenceClickListener = this
             findPreference("goto_github").onPreferenceClickListener = this
 
             findPreference("module_version").summary =
@@ -124,7 +126,7 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                                     return@showEditDialog
                                 }
                                 repeat(num) {
-                                    AkinatorHelper.Methods.addOneWonGame()
+                                    AkinatorHelper.AKGameFactory.addOneWonGame()
                                 }
                                 Log.toast(getString(R.string.success_increate_win_times, num))
                             }
@@ -144,9 +146,49 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                                     return@showEditDialog
                                 }
                                 repeat(num) {
-                                    AkinatorHelper.Methods.addOneWonGame()
+                                    AkinatorHelper.AKGameFactory.addOneWonGame()
                                 }
                                 Log.toast(getString(R.string.success_increate_lose_times, num))
+                            }
+                        }
+                    )
+                }
+                "set_gz" -> {
+                    showEditDialog(
+                        getString(R.string.set_gz_title),
+                        defText = "100000",
+                        inputType = InputType.TYPE_CLASS_NUMBER,
+                        onConfirm = { num ->
+                            num.toIntOrNull().let {
+                                if (it == null) {
+                                    Log.toast(getString(R.string.invalid_num, num))
+                                } else {
+                                    if (AkinatorHelper.AKConfigFactory.isUserConnected())
+                                        AkinatorHelper.AkPlayerBelongingsFactory.setGenizBalanceAccount(
+                                            it
+                                        )
+                                    else
+                                        AkinatorHelper.AkPlayerBelongingsFactory.setGenizBalance(it)
+                                    Log.toast(getString(R.string.success_set_gz, it))
+                                }
+                            }
+                        }
+                    )
+                }
+                "add_xp" -> {
+                    showEditDialog(
+                        getString(R.string.add_xp_title),
+                        getString(R.string.offline_only),
+                        defText = "0",
+                        inputType = InputType.TYPE_CLASS_NUMBER,
+                        onConfirm = { num ->
+                            num.toIntOrNull().let {
+                                if (it == null) {
+                                    Log.toast(getString(R.string.invalid_num, num))
+                                } else {
+                                    AkinatorHelper.AkPlayerBelongingsFactory.addXp(it)
+                                    Log.toast(getString(R.string.success_add_xp, it))
+                                }
                             }
                         }
                     )

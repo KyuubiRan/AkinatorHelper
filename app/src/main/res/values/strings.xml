@@ -22,10 +22,17 @@
     <string name="increase_win_times_title">Increase win times</string>
     <string name="increase_lose_times_title">Increase lose times</string>
     <string name="times_to_add">Times to add</string>
-    <string name="local_hack_title">Local hack</string>
+    <string name="pref_hack">Preferences hack</string>
     <string name="success_increate_win_times">Increase %d win times</string>
     <string name="success_increate_lose_times">Increase %d lose times</string>
     <string name="num_must_be_greater_than_zero">The number must be greater than zero!</string>
     <string name="save">Save</string>
     <string name="close">Close</string>
+    <string name="set_gz_title">Set gz</string>
+    <string name="offline_only">Offline only</string>
+    <string name="add_xp_title">Add xp</string>
+    <string name="success_set_gz">Success set gz: %d</string>
+    <string name="invalid_num">%s is not an valid number!</string>
+    <string name="success_add_xp">Success add xp: %d</string>
+    <string name="data_will_not_be_sync">Only modified local data and will not be sync to the server.</string>
 </resources>

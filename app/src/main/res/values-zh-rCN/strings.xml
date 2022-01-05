@@ -21,10 +21,17 @@
     <string name="increase_win_times_title">增加胜利次数</string>
     <string name="increase_lose_times_title">增加失败次数</string>
     <string name="times_to_add">增加的次数</string>
-    <string name="local_hack_title">本地修改</string>
+    <string name="pref_hack">本地修改</string>
     <string name="success_increate_win_times">已增加%d次胜利次数</string>
     <string name="success_increate_lose_times">已增加%d次失败次数</string>
     <string name="num_must_be_greater_than_zero">数字必须大于0！</string>
     <string name="save">保存</string>
     <string name="close">关闭</string>
+    <string name="set_gz_title">设置Gz</string>
+    <string name="offline_only">仅离线模式</string>
+    <string name="add_xp_title">增加Xp</string>
+    <string name="success_set_gz">成功设置Gz: %d</string>
+    <string name="invalid_num">%s 不是一个有效的数字！</string>
+    <string name="success_add_xp">成功增加Xp: %d</string>
+    <string name="data_will_not_be_sync">仅修改本地值，数据不会同步到服务器。</string>
 </resources>

@@ -4,19 +4,79 @@ import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.loadClass
 
 object AkinatorHelper {
-    object Methods {
+    object AkPlayerBelongingsFactory {
+        private val C_AK_PLAYER_BELONGINGS_FACTORY by lazy {
+            loadClass("com.digidust.elokence.akinator.factories.AkPlayerBelongingsFactory")
+        }
+
+        private val sInstance: Any by lazy {
+            findMethod(C_AK_PLAYER_BELONGINGS_FACTORY) {
+                name == "sharedInstance"
+            }.invoke(null)!!
+        }
+
+        private val mSetGenizBalance by lazy {
+            findMethod(C_AK_PLAYER_BELONGINGS_FACTORY) {
+                name == "setGenizBalance"
+            }
+        }
+
+        private val mSetGenizBalanceAccount by lazy {
+            findMethod(C_AK_PLAYER_BELONGINGS_FACTORY) {
+                name == "setGenizBalanceAccount"
+            }
+        }
+
+        fun setGenizBalance(balance: Int) {
+            mSetGenizBalance.invoke(sInstance, balance)
+        }
+
+        fun setGenizBalanceAccount(balance: Int) {
+            mSetGenizBalanceAccount.invoke(sInstance, balance)
+        }
+
+        private val mAddXp by lazy {
+            findMethod(C_AK_PLAYER_BELONGINGS_FACTORY) {
+                name == "addXp"
+            }
+        }
+
+        fun addXp(xp: Int) {
+            mAddXp.invoke(sInstance, xp)
+        }
+    }
+
+    object AKConfigFactory {
+        private val C_AK_CONFIG_FACTORY by lazy {
+            loadClass("com.digidust.elokence.akinator.factories.AkConfigFactory")
+        }
+
+        private val sInstance: Any by lazy {
+            findMethod(C_AK_CONFIG_FACTORY) {
+                name == "sharedInstance"
+            }.invoke(null)!!
+        }
+
+        private val mIsUserConnected by lazy {
+            findMethod(C_AK_CONFIG_FACTORY) {
+                name == "isUserConnected"
+            }
+        }
+
+        fun isUserConnected(): Boolean {
+            return mIsUserConnected.invoke(sInstance) as Boolean
+        }
+    }
+
+    object AKGameFactory {
         private val C_AK_GAME_FACTORY by lazy {
             loadClass("com.digidust.elokence.akinator.factories.AkGameFactory")
         }
 
-        private val mGetAkGameFactoryInstance by lazy {
+        private val sInstance: Any by lazy {
             findMethod(C_AK_GAME_FACTORY) {
                 name == "sharedInstance"
-            }
-        }
-
-        private val akGameFactoryInstance: Any by lazy {
-            mGetAkGameFactoryInstance(null)!!
+            }.invoke(null)!!
         }
 
         private val mIsGameUnlocked by lazy {
@@ -26,7 +86,7 @@ object AkinatorHelper {
         }
 
         fun isGameUnlocked(): Boolean {
-            return mIsGameUnlocked.invoke(akGameFactoryInstance) as Boolean
+            return mIsGameUnlocked.invoke(sInstance) as Boolean
         }
 
         private val mSetGameLocked by lazy {
@@ -36,7 +96,7 @@ object AkinatorHelper {
         }
 
         fun setGameLocked() {
-            mSetGameLocked.invoke(akGameFactoryInstance)
+            mSetGameLocked.invoke(sInstance)
         }
 
 
@@ -47,7 +107,7 @@ object AkinatorHelper {
         }
 
         fun setGameUnlocked() {
-            mSetGameUnlocked.invoke(akGameFactoryInstance)
+            mSetGameUnlocked.invoke(sInstance)
         }
 
         private val mAddOneWonGame by lazy {
@@ -57,7 +117,7 @@ object AkinatorHelper {
         }
 
         fun addOneWonGame() {
-            mAddOneWonGame.invoke(akGameFactoryInstance)
+            mAddOneWonGame.invoke(sInstance)
         }
 
         private val mAddOneLostGame by lazy {
@@ -67,16 +127,15 @@ object AkinatorHelper {
         }
 
         fun addOneLostGame() {
-            mAddOneLostGame.invoke(akGameFactoryInstance)
+            mAddOneLostGame.invoke(sInstance)
         }
-
     }
 
     var isGameUnlocked: Boolean
         set(value) {
-            if (value) Methods.setGameUnlocked()
-            else Methods.setGameLocked()
+            if (value) AKGameFactory.setGameUnlocked()
+            else AKGameFactory.setGameLocked()
         }
-        get() = Methods.isGameUnlocked()
+        get() = AKGameFactory.isGameUnlocked()
 
 }
