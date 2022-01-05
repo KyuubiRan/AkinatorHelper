@@ -178,8 +178,7 @@ class SettingDialog(activity: Activity) : AlertDialog.Builder(activity) {
                 "add_xp" -> {
                     showEditDialog(
                         getString(R.string.add_xp_title),
-                        getString(R.string.offline_only),
-                        defText = "0",
+                        defText = "100",
                         inputType = InputType.TYPE_CLASS_NUMBER,
                         onConfirm = { num ->
                             num.toIntOrNull().let {
