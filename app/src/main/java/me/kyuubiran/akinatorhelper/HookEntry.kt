@@ -16,7 +16,7 @@ class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
     }
 
     private val init: Unit by lazy {
-        initHooks(OnGameActivityCreateHook, SettingHook, ConfigHook, GameResultHook)
+        initHooks(AppHook, SettingHook, ConfigHook, GameResultHook)
     }
 
     private fun initHooks(vararg hooks: BaseHook) {
