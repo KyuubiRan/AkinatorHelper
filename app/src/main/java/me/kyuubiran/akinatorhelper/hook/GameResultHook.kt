@@ -26,5 +26,6 @@ object GameResultHook : BaseHook() {
             Log.i("Hooked ${it.method.name}")
             it.result = true
         }
+        // endregion
     }
 }
